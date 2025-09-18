@@ -4,14 +4,14 @@ use std::{hint::black_box, time::Duration};
 use ring_arith::{cyclotomic_ring::*, hexl::bindings::eltwise_add_mod};
 use criterion::{criterion_group, criterion_main, Criterion};
 
-const N: usize = 64;
+const N: usize = 128;
 // const MOD_Q: u64 = 4546383823830515713; // Example modulus
 const MOD_Q: u64 = 1125899904679937; // Example modulus IFMA
 // 1125899904679937
 const K: usize = 2; 
 const WIT_DIM: usize = 1048576; // 2^20
 // const WIT_DIM: usize = 1024; // 2^10
-const LOG_B:usize = 11;
+const LOG_B:usize = 11; // 10 for unbalanced, 11 for signed
 
 
 fn add_avx512(data: [u64; N], other: [u64; N]) -> [u64; N] {
@@ -58,9 +58,10 @@ fn bench_lfpp(c: &mut Criterion) {
     //     )
     // });
 
-    const KAPPA_LFP: usize = 23;
+    const KAPPA_LFP: usize = 12;
 
     // 1.9497 s
+    const L: usize = 3; // one for input two for accumulation
     c.bench_function("lfp compute double commitment no mod", |b| {
         b.iter_with_setup(
             || {
@@ -70,7 +71,7 @@ fn bench_lfpp(c: &mut Criterion) {
             },
             |(mut operand1, mut operand2)| {
                 unsafe {
-                    for _ in 0..WIT_DIM * K * N * KAPPA_LFP {
+                    for _ in 0..WIT_DIM * K * N * L * KAPPA_LFP {
                         add_avx512(
                             black_box(operand1.clone().data),
                             black_box(operand2.clone().data),
@@ -81,7 +82,7 @@ fn bench_lfpp(c: &mut Criterion) {
         )
     });
 
-    const KAPPA_LFPP: usize = 19;
+    const KAPPA_LFPP: usize = 11;
     // 1.6817 s
     c.bench_function("lfpp compute extension commitment", |b| {
         b.iter_with_setup(
