@@ -127,7 +127,7 @@ extern "C" __attribute__((externally_visible)) void eltwise_reduce_mod(
     uint64_t modulus
 ) {
     // Use HEXL's EltwiseReduceMod function
-    intel::hexl::EltwiseReduceMod(result, operand, n, modulus, 4, 1);
+    intel::hexl::EltwiseReduceMod(result, operand, n, modulus, modulus, 1);
 }
 
 extern "C" __attribute__((externally_visible)) void eltwise_add_mod(
