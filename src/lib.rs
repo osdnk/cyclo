@@ -3,4 +3,3 @@
 
 pub mod cyclotomic_ring;
 pub mod hexl;
-pub mod ringops;

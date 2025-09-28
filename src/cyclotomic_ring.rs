@@ -153,8 +153,6 @@ fn test_multiplication_same_representation() {
     assert_eq!(c.data, [0, 3, 4, 3]);
 }
 
-static NORMALIZE_INCOMPLETE_NTT_FACTORS_CACHE: OnceLock<Mutex<HashMap<usize, Vec<u64>>>> = OnceLock::new();
-static NORMALIZE_INCOMPLETE_NTT_FACTORS_INVERSE_CACHE: OnceLock<Mutex<HashMap<usize, Vec<u64>>>> = OnceLock::new();
 
 impl<const MOD_Q: u64, const N: usize> CyclotomicRing<MOD_Q, N> {
     pub fn new() -> Self {
@@ -217,6 +215,24 @@ impl<const MOD_Q: u64, const N: usize> CyclotomicRing<MOD_Q, N> {
 
     fn inverse_ntt(&mut self) {
         unsafe { ntt_inverse_in_place(self.data.as_mut_ptr(), self.data.len(), MOD_Q) };
+    }
+
+    pub fn add_no_overflow(&mut self, other: &CyclotomicRing<MOD_Q, N>) -> CyclotomicRing<MOD_Q, N> {
+        self.adjust_representation(other.representation);
+        use std::arch::x86_64::*;
+        #[cfg(target_feature = "avx512f")]
+        unsafe {
+            let mut result = [0u64; N];
+            let chunks = N / 8;
+            for i in 0..chunks {
+                let a = _mm512_loadu_si512(data.as_ptr().add(i * 8) as *const _);
+                let b = _mm512_loadu_si512(other.as_ptr().add(i * 8) as *const _);
+                let sum = _mm512_add_epi64(a, b);
+                _mm512_storeu_si512(result.as_mut_ptr().add(i * 8) as *mut _, sum);
+            }
+            return CyclotomicRing { data: result, representation: self.representation.clone() };
+        }
+        panic!("AVX512 is not supported on this architecture");
     }
 
     pub fn conjugate(&self) -> Self {
