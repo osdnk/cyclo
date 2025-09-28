@@ -45,7 +45,7 @@ fn bench_lfpp(c: &mut Criterion) {
             || {
                 let mut operand1 = CyclotomicRing::<MOD_Q, N>::random();
                 operand1.to_incomplete_ntt_representation();
-                let mut operand2: CyclotomicRing<1125899904679937, 128> = CyclotomicRing::<MOD_Q, N>::random();
+                let mut operand2: CyclotomicRing<MOD_Q, 128> = CyclotomicRing::<MOD_Q, N>::random();
                 operand2.to_incomplete_ntt_representation();
                 (operand1, operand2)
             },
