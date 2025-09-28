@@ -225,8 +225,8 @@ impl<const MOD_Q: u64, const N: usize> CyclotomicRing<MOD_Q, N> {
             let mut result = [0u64; N];
             let chunks = N / 8;
             for i in 0..chunks {
-                let a = _mm512_loadu_si512(data.as_ptr().add(i * 8) as *const _);
-                let b = _mm512_loadu_si512(other.as_ptr().add(i * 8) as *const _);
+                let a = _mm512_loadu_si512(self.data.as_ptr().add(i * 8) as *const _);
+                let b = _mm512_loadu_si512(other.data.as_ptr().add(i * 8) as *const _);
                 let sum = _mm512_add_epi64(a, b);
                 _mm512_storeu_si512(result.as_mut_ptr().add(i * 8) as *mut _, sum);
             }
