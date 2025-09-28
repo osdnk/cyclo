@@ -33,7 +33,7 @@ fn bench_lfpp(c: &mut Criterion) {
             |(mut operand1, mut operand2)| {
                 unsafe {
                     black_box(operand1.clone()).add_no_overflow(
-                        black_box(operand2.clone()),
+                        black_box(&operand2.clone()),
                     );
                 }                
             }, 
