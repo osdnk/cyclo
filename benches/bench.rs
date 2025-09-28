@@ -58,6 +58,8 @@ fn bench_lfpp(c: &mut Criterion) {
     c.bench_function("NTT reduction", |b| {
         b.iter_with_setup(
             || {
+                const MOD_Q_BIG: u64 = 4546383823830515713; // Example, only needed for random generation range
+
                 let mut operand0 = CyclotomicRing::<MOD_Q_BIG, N>::random();
                 let mut operand1 = CyclotomicRing::<MOD_Q_BIG, N>::new();
                 operand1.data = operand0.data;
