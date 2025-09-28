@@ -95,8 +95,8 @@ gmake[1]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/b
 -- Performing Test HAVE_GNU_POSIX_REGEX -- failed to compile
 -- Performing Test HAVE_POSIX_REGEX -- success
 -- Performing Test HAVE_STEADY_CLOCK -- success
--- Configuring done (2.0s)
--- Generating done (0.2s)
+-- Configuring done (1.5s)
+-- Generating done (0.1s)
 -- Build files have been written to: /home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build
 cmake --build ./hexl-bindings/hexl/build
 gmake[1]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
@@ -141,13 +141,19 @@ warning: unused imports: `multiply_mod` and `power_mod`
 1 | ...ise_reduce_mod, eltwise_sub_mod, multiply_mod, ntt_forward_in_place, ntt_inverse_in_place, power_mod};
   |                                     ^^^^^^^^^^^^                                              ^^^^^^^^^
   |
-  = note: `#[warn(unused_imports)]` on by default
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
 
-warning: unused import: `RwLock`
- --> src/cyclotomic_ring.rs:4:34
+warning: unused import: `std::collections::HashMap`
+ --> src/cyclotomic_ring.rs:3:5
+  |
+3 | use std::collections::HashMap;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `Mutex` and `RwLock`
+ --> src/cyclotomic_ring.rs:4:17
   |
 4 | use std::sync::{Mutex, OnceLock, RwLock};
-  |                                  ^^^^^^
+  |                 ^^^^^            ^^^^^^
 
 warning: unused import: `std::iter::Sum`
  --> src/cyclotomic_ring.rs:6:5
@@ -155,73 +161,42 @@ warning: unused import: `std::iter::Sum`
 6 | use std::iter::Sum;
   |     ^^^^^^^^^^^^^^
 
-warning: unused import: `once_cell::sync::OnceCell`
- --> src/ringops.rs:7:5
-  |
-7 | use once_cell::sync::OnceCell;
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `once_cell::sync::Lazy`
- --> src/ringops.rs:8:5
-  |
-8 | use once_cell::sync::Lazy;
-  |     ^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `std::collections::HashMap`
- --> src/ringops.rs:9:5
-  |
-9 | use std::collections::HashMap;
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
-
-warning: unused import: `std::sync::Mutex`
-  --> src/ringops.rs:10:5
-   |
-10 | use std::sync::Mutex;
-   |     ^^^^^^^^^^^^^^^^
-
-warning: unused import: `std::sync::Arc`
-  --> src/ringops.rs:11:5
-   |
-11 | use std::sync::Arc;
-   |     ^^^^^^^^^^^^^^
+warning: unreachable statement
+   --> src/cyclotomic_ring.rs:235:9
+    |
+233 |             return CyclotomicRing { data: result, representation: self.representation.clone() };
+    |             ----------------------------------------------------------------------------------- any code following this expression is unreachable
+234 |         }
+235 |         panic!("AVX512 is not supported on this architecture");
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable statement
+    |
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
 
 warning: variable does not need to be mutable
-   --> src/cyclotomic_ring.rs:177:13
+   --> src/cyclotomic_ring.rs:175:13
     |
-177 |         let mut res = t + t.conjugate();
+175 |         let mut res = t + t.conjugate();
     |             ----^^^
     |             |
     |             help: remove this `mut`
     |
-    = note: `#[warn(unused_mut)]` on by default
-
-warning: static `NORMALIZE_INCOMPLETE_NTT_FACTORS_CACHE` is never used
-   --> src/cyclotomic_ring.rs:156:8
-    |
-156 | static NORMALIZE_INCOMPLETE_NTT_FACTORS_CACHE: OnceLock<Mutex<HashMap<usize, Vec<u64>>>> = OnceLock::new();
-    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    |
-    = note: `#[warn(dead_code)]` on by default
-
-warning: static `NORMALIZE_INCOMPLETE_NTT_FACTORS_INVERSE_CACHE` is never used
-   --> src/cyclotomic_ring.rs:157:8
-    |
-157 | static NORMALIZE_INCOMPLETE_NTT_FACTORS_INVERSE_CACHE: OnceLock<Mutex<HashMap<usize, Vec<u64>>>> = OnceLock::new();
-    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
 
 warning: methods `forward_ntt` and `inverse_ntt` are never used
-   --> src/cyclotomic_ring.rs:214:8
+   --> src/cyclotomic_ring.rs:212:8
     |
-159 | impl<const MOD_Q: u64, const N: usize> CyclotomicRing<MOD_Q, N> {
+157 | impl<const MOD_Q: u64, const N: usize> CyclotomicRing<MOD_Q, N> {
     | --------------------------------------------------------------- methods in this implementation
 ...
-214 |     fn forward_ntt(&mut self) {
+212 |     fn forward_ntt(&mut self) {
     |        ^^^^^^^^^^^
 ...
-218 |     fn inverse_ntt(&mut self) {
+216 |     fn inverse_ntt(&mut self) {
     |        ^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
 
-warning: `ring_arith` (lib) generated 13 warnings (run `cargo fix --lib -p ring_arith` to apply 9 suggestions)
+warning: `ring_arith` (lib) generated 8 warnings (run `cargo fix --lib -p ring_arith` to apply 5 suggestions)
 warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes
  --> src/main.rs:2:12
   |
@@ -231,96 +206,138 @@ warning: the feature `generic_const_exprs` is incomplete and may not be safe to 
   = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information
   = note: `#[warn(incomplete_features)]` on by default
 
-warning: unused import: `prime::largest_prime_in_arithmetic_progression64`
+warning: unused import: `ring_arith::cyclotomic_ring::*`
+ --> src/main.rs:3:5
+  |
+3 | use ring_arith::cyclotomic_ring::*;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `rand::Rng`
+ --> src/main.rs:4:5
+  |
+4 | use rand::Rng;
+  |     ^^^^^^^^^
+
+warning: unused imports: `*` and `prime::largest_prime_in_arithmetic_progression64`
  --> src/main.rs:5:16
   |
 5 | use tfhe_ntt::{prime::largest_prime_in_arithmetic_progression64, *};
-  |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  |
-  = note: `#[warn(unused_imports)]` on by default
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^
 
-warning: unused import: `hexl::bindings::eltwise_add_mod`
- --> benches/bench.rs:4:38
+warning: unused import: `eltwise_add_mod`
+ --> benches/bench.rs:4:55
   |
-4 | use ring_arith::{cyclotomic_ring::*, hexl::bindings::eltwise_add_mod};
-  |                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4 | use ring_arith::{cyclotomic_ring::*, hexl::bindings::{eltwise_add_mod, eltwise_reduce_mod}};
+  |                                                       ^^^^^^^^^^^^^^^
   |
-  = note: `#[warn(unused_imports)]` on by default
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
 
-warning: unreachable statement
-  --> benches/bench.rs:31:5
+warning: unnecessary parentheses around block return value
+  --> benches/bench.rs:17:17
    |
-29 |         return result;
-   |         ------------- any code following this expression is unreachable
-30 |     }
-31 |     panic!("AVX512 is not supported on this architecture");
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable statement
+17 |                 (operand1)
+   |                 ^        ^
    |
-   = note: `#[warn(unreachable_code)]` on by default
+   = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+   |
+17 -                 (operand1)
+17 +                 operand1
+   |
+
+warning: unnecessary parentheses around block return value
+  --> benches/bench.rs:66:17
+   |
+66 |                 (operand1)
+   |                 ^        ^
+   |
+help: remove these parentheses
+   |
+66 -                 (operand1)
+66 +                 operand1
+   |
+
+warning: the feature `stdarch_x86_avx512` has been stable since 1.89.0 and no longer requires an attribute to enable
+ --> benches/bench.rs:1:12
+  |
+1 | #![feature(stdarch_x86_avx512)]
+  |            ^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
 
 warning: unnecessary `unsafe` block
-  --> benches/bench.rs:72:17
+  --> benches/bench.rs:34:17
    |
-72 |                 unsafe {
+34 |                 unsafe {
    |                 ^^^^^^ unnecessary `unsafe` block
    |
-   = note: `#[warn(unused_unsafe)]` on by default
+   = note: `#[warn(unused_unsafe)]` (part of `#[warn(unused)]`) on by default
 
 warning: variable does not need to be mutable
-  --> benches/bench.rs:67:21
+  --> benches/bench.rs:16:21
    |
-67 |                 let mut operand1 = CyclotomicRing::<MOD_Q, N>::random();
+16 |                 let mut operand1 = CyclotomicRing::<MOD_Q, N>::random();
    |                     ----^^^^^^^^
    |                     |
    |                     help: remove this `mut`
    |
-   = note: `#[warn(unused_mut)]` on by default
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
 
 warning: variable does not need to be mutable
-  --> benches/bench.rs:68:21
+  --> benches/bench.rs:29:21
    |
-68 |                 let mut operand2 = CyclotomicRing::<MOD_Q, N>::random();
+29 |                 let mut operand1 = CyclotomicRing::<MOD_Q, N>::random();
    |                     ----^^^^^^^^
    |                     |
    |                     help: remove this `mut`
 
 warning: variable does not need to be mutable
-  --> benches/bench.rs:71:15
+  --> benches/bench.rs:30:21
    |
-71 |             |(mut operand1, mut operand2)| {
+30 |                 let mut operand2 = CyclotomicRing::<MOD_Q, N>::random();
+   |                     ----^^^^^^^^
+   |                     |
+   |                     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:33:15
+   |
+33 |             |(mut operand1, mut operand2)| {
    |               ----^^^^^^^^
    |               |
    |               help: remove this `mut`
 
 warning: variable does not need to be mutable
-  --> benches/bench.rs:71:29
+  --> benches/bench.rs:33:29
    |
-71 |             |(mut operand1, mut operand2)| {
+33 |             |(mut operand1, mut operand2)| {
    |                             ----^^^^^^^^
    |                             |
    |                             help: remove this `mut`
 
 warning: variable does not need to be mutable
-  --> benches/bench.rs:93:21
+  --> benches/bench.rs:63:21
    |
-93 |                 let mut operand3 = CyclotomicRing::<MOD_Q, N>::random();
+63 |                 let mut operand0 = CyclotomicRing::<MOD_Q_BIG, N>::random();
    |                     ----^^^^^^^^
    |                     |
    |                     help: remove this `mut`
 
 warning: variable does not need to be mutable
-  --> benches/bench.rs:96:43
+  --> benches/bench.rs:68:14
    |
-96 |             |(mut operand1, mut operand2, mut operand3)| {
-   |                                           ----^^^^^^^^
-   |                                           |
-   |                                           help: remove this `mut`
+68 |             |mut operand1| {
+   |              ----^^^^^^^^
+   |              |
+   |              help: remove this `mut`
 
-warning: `ring_arith` (bin "main" test) generated 2 warnings (run `cargo fix --bin "main" --tests` to apply 1 suggestion)
-warning: `ring_arith` (lib test) generated 13 warnings (13 duplicates)
-warning: `ring_arith` (bin "main") generated 2 warnings (2 duplicates)
-warning: `ring_arith` (bench "bench") generated 9 warnings (run `cargo fix --bench "bench"` to apply 7 suggestions)
-    Finished `bench` profile [optimized] target(s) in 2.64s
+warning: `ring_arith` (bin "main") generated 4 warnings (run `cargo fix --bin "main"` to apply 3 suggestions)
+warning: `ring_arith` (bin "main" test) generated 4 warnings (4 duplicates)
+warning: `ring_arith` (lib test) generated 8 warnings (8 duplicates)
+warning: `ring_arith` (bench "bench") generated 12 warnings (run `cargo fix --bench "bench"` to apply 10 suggestions)
+    Finished `bench` profile [optimized] target(s) in 1.93s
      Running unittests src/lib.rs (target/release/deps/ring_arith-cd3b7233c2a009a0)
 
 running 6 tests
@@ -341,25 +358,39 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
      Running benches/bench.rs (target/release/deps/bench-d340c4827210b612)
 Gnuplot not found, using plotters backend
-Benchmarking lfp compute double commitment no mod
-Benchmarking lfp compute double commitment no mod: Warming up for 10.000 s
+Benchmarking NTT transform
+Benchmarking NTT transform: Warming up for 30.000 s
+Benchmarking NTT transform: Collecting 10 samples in estimated 5.0000 s (7.0M iterations)
+Benchmarking NTT transform: Analyzing
+NTT transform           time:   [178.99 ns 179.03 ns 179.07 ns]
+                        change: [−9.7138% −6.9390% −4.0286%] (p = 0.00 < 0.05)
+                        Performance has improved.
 
-Warning: Unable to complete 30 samples in 5.0s. You may wish to increase target time to 528.3s, or reduce sample count to 10.
-Benchmarking lfp compute double commitment no mod: Collecting 30 samples in estimated 528.30 s (30 iterations)
-Benchmarking lfp compute double commitment no mod: Analyzing
-lfp compute double commitment no mod
-                        time:   [34.157 s 34.394 s 34.622 s]
-                        change: [+96.826% +98.023% +99.484%] (p = 0.00 < 0.05)
+Benchmarking NTT add no mod
+Benchmarking NTT add no mod: Warming up for 30.000 s
+Benchmarking NTT add no mod: Collecting 10 samples in estimated 5.0000 s (4.6M iterations)
+Benchmarking NTT add no mod: Analyzing
+NTT add no mod          time:   [40.058 ns 40.077 ns 40.094 ns]
+                        change: [+45.045% +47.003% +49.058%] (p = 0.00 < 0.05)
                         Performance has regressed.
 
-Benchmarking lfpp compute extension commitment
-Benchmarking lfpp compute extension commitment: Warming up for 10.000 s
+Benchmarking NTT multiplication
+Benchmarking NTT multiplication: Warming up for 30.000 s
+Benchmarking NTT multiplication: Collecting 10 samples in estimated 5.0001 s (3.1M iterations)
+Benchmarking NTT multiplication: Analyzing
+NTT multiplication      time:   [186.43 ns 186.53 ns 186.66 ns]
+                        change: [−22.119% −21.189% −20.234%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 3 outliers among 10 measurements (30.00%)
+  1 (10.00%) low severe
+  1 (10.00%) high mild
+  1 (10.00%) high severe
 
-Warning: Unable to complete 30 samples in 5.0s. You may wish to increase target time to 592.5s, or reduce sample count to 10.
-Benchmarking lfpp compute extension commitment: Collecting 30 samples in estimated 592.49 s (30 iterations)
-Benchmarking lfpp compute extension commitment: Analyzing
-lfpp compute extension commitment
-                        time:   [18.976 s 19.144 s 19.318 s]
-                        change: [−59.876% −59.445% −59.012%] (p = 0.00 < 0.05)
+Benchmarking NTT reduction
+Benchmarking NTT reduction: Warming up for 30.000 s
+Benchmarking NTT reduction: Collecting 10 samples in estimated 5.0000 s (4.8M iterations)
+Benchmarking NTT reduction: Analyzing
+NTT reduction           time:   [97.055 ns 97.102 ns 97.149 ns]
+                        change: [−4.2940% −3.5438% −2.8088%] (p = 0.00 < 0.05)
                         Performance has improved.
 
