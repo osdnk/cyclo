@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #SBATCH --mem=10G
-#SBATCH --cpus-per-task 4
-#SBATCH --time=15:20:20
-#SBATCH --partition=gpu-h100-80g
+#SBATCH --cpus-per-task 1
+#SBATCH --time=01:00:20
+#SBATCH --constraint=emerald
 module load gcc cmake
 make hexl-triton
 make wrapper
