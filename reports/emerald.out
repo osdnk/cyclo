@@ -1,0 +1,396 @@
+cmake -S ./hexl-bindings/hexl/ -B ./hexl-bindings/hexl/build -DCMAKE_C_COMPILER=/appl/scibuilder-spack/aalto-rhel9-prod/2024-01-compilers/software/linux-rhel9-haswell/gcc-11.4.1/gcc-12.3.0-xh5vv5d/bin/gcc
+-- HEXL BRANCH:                   HEAD
+-- CMAKE_BUILD_TYPE:              Release
+-- CMAKE_C_COMPILER:              /appl/scibuilder-spack/aalto-rhel9-prod/2024-01-compilers/software/linux-rhel9-haswell/gcc-11.4.1/gcc-12.3.0-xh5vv5d/bin/gcc
+-- CMAKE_CXX_COMPILER:            /appl/scibuilder-spack/aalto-rhel9-prod/2024-01-compilers/software/linux-rhel9-haswell/gcc-11.4.1/gcc-12.3.0-xh5vv5d/bin/g++
+-- HEXL_BENCHMARK:                ON
+-- HEXL_COVERAGE:                 OFF
+-- HEXL_DEBUG:                    OFF
+-- HEXL_DOCS:                     OFF
+-- HEXL_EXPERIMENTAL:             OFF
+-- HEXL_SHARED_LIB:               OFF
+-- HEXL_TESTING:                  ON
+-- HEXL_TREAT_WARNING_AS_ERROR:   OFF
+-- HEXL_FPGA_COMPATIBILITY:       0
+-- CMAKE_CXX_FLAGS_DEBUG -g
+-- CMAKE_CXX_FLAGS_RELEASE -O3 -DNDEBUG
+-- CMAKE_CXX_FLAGS_MINSIZEREL -Os -DNDEBUG
+-- CMAKE_CXX_FLAGS_RELWITHDEBINFO -O2 -g -DNDEBUG
+-- CMAKE_CXX_FLAGS 
+-- Setting HEXL_HAS_AVX512DQ
+-- Setting HEXL_HAS_AVX512IFMA
+-- Setting HEXL_HAS_AVX512VBMI2
+-- Setting HEXL_HAS_AVX256
+-- CMAKE_INSTALL_LIBDIR:     lib64
+-- CMAKE_INSTALL_INCLUDEDIR: include
+-- CMAKE_INSTALL_PREFIX:     /usr/local
+-- Could NOT find CpuFeatures (missing: CpuFeatures_DIR)
+-- CpuFeatures: pre-installed CpuFeatures not found
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/cpu-features/cpu-features-download
+gmake[1]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/cpu-features/cpu-features-download'
+gmake[2]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/cpu-features/cpu-features-download'
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/cpu-features/cpu-features-download'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/cpu-features/cpu-features-download'
+[100%] Built target cpu_features
+gmake[2]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/cpu-features/cpu-features-download'
+gmake[1]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/cpu-features/cpu-features-download'
+CMake Deprecation Warning at build/cmake/third-party/cpu-features/cpu-features-src/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gtest/gtest-download
+gmake[1]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gtest/gtest-download'
+gmake[2]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gtest/gtest-download'
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gtest/gtest-download'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gtest/gtest-download'
+[100%] Built target gtest
+gmake[2]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gtest/gtest-download'
+gmake[1]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gtest/gtest-download'
+CMake Deprecation Warning at build/cmake/third-party/gtest/gtest-src/CMakeLists.txt:4 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at build/cmake/third-party/gtest/gtest-src/googlemock/CMakeLists.txt:45 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at build/cmake/third-party/gtest/gtest-src/googletest/CMakeLists.txt:56 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gbenchmark/gbenchmark-download
+gmake[1]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gbenchmark/gbenchmark-download'
+gmake[2]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gbenchmark/gbenchmark-download'
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gbenchmark/gbenchmark-download'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gbenchmark/gbenchmark-download'
+[100%] Built target gbenchmark
+gmake[2]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gbenchmark/gbenchmark-download'
+gmake[1]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build/cmake/third-party/gbenchmark/gbenchmark-download'
+-- Failed to find LLVM FileCheck
+-- git version: v1.6.0-9-gf730846b normalized to 1.6.0.9
+-- Version: 1.6.0.9
+-- Performing Test HAVE_STD_REGEX -- success
+-- Performing Test HAVE_GNU_POSIX_REGEX -- failed to compile
+-- Performing Test HAVE_POSIX_REGEX -- success
+-- Performing Test HAVE_STEADY_CLOCK -- success
+-- Configuring done (1.8s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build
+cmake --build ./hexl-bindings/hexl/build
+gmake[1]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[2]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+[  3%] Built target utils
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+[  6%] Built target cpu_features
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+[ 33%] Built target hexl
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+[ 58%] Built target benchmark
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+[ 70%] Built target bench_hexl
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+[ 72%] Built target gtest
+gmake[3]: Entering directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[3]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+[100%] Built target unit-test
+gmake[2]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+gmake[1]: Leaving directory '/home/osadnim1/lfpp-benchmarks/hexl-bindings/hexl/build'
+g++ -std=c++17 -fPIC -shared -o libhexl_wrapper.so hexl-bindings/hexl_wrapper.cpp -O3 -fwhole-program -flto -Wall -Wno-unused-function -Wno-unused-result -funroll-all-loops -march=native -lm -Wno-sign-compare -Wno-write-strings -I./hexl-bindings/hexl/hexl/include/ -L./hexl-bindings/hexl/build/hexl/lib -L./hexl-bindings/hexl/build/hexl/lib64 -lhexl
+   Compiling ring_arith v0.1.0 (/home/osadnim1/lfpp-benchmarks)
+warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes
+ --> src/lib.rs:1:12
+  |
+1 | #![feature(generic_const_exprs)]
+  |            ^^^^^^^^^^^^^^^^^^^
+  |
+  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information
+  = note: `#[warn(incomplete_features)]` on by default
+
+warning: unused imports: `multiply_mod` and `power_mod`
+ --> src/cyclotomic_ring.rs:1:101
+  |
+1 | ...ise_reduce_mod, eltwise_sub_mod, multiply_mod, ntt_forward_in_place, ntt_inverse_in_place, power_mod};
+  |                                     ^^^^^^^^^^^^                                              ^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `std::collections::HashMap`
+ --> src/cyclotomic_ring.rs:3:5
+  |
+3 | use std::collections::HashMap;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `Mutex` and `RwLock`
+ --> src/cyclotomic_ring.rs:4:17
+  |
+4 | use std::sync::{Mutex, OnceLock, RwLock};
+  |                 ^^^^^            ^^^^^^
+
+warning: unused import: `std::iter::Sum`
+ --> src/cyclotomic_ring.rs:6:5
+  |
+6 | use std::iter::Sum;
+  |     ^^^^^^^^^^^^^^
+
+warning: unreachable statement
+   --> src/cyclotomic_ring.rs:235:9
+    |
+233 |             return CyclotomicRing { data: result, representation: self.representation.clone() };
+    |             ----------------------------------------------------------------------------------- any code following this expression is unreachable
+234 |         }
+235 |         panic!("AVX512 is not supported on this architecture");
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ unreachable statement
+    |
+    = note: `#[warn(unreachable_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+   --> src/cyclotomic_ring.rs:175:13
+    |
+175 |         let mut res = t + t.conjugate();
+    |             ----^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: methods `forward_ntt` and `inverse_ntt` are never used
+   --> src/cyclotomic_ring.rs:212:8
+    |
+157 | impl<const MOD_Q: u64, const N: usize> CyclotomicRing<MOD_Q, N> {
+    | --------------------------------------------------------------- methods in this implementation
+...
+212 |     fn forward_ntt(&mut self) {
+    |        ^^^^^^^^^^^
+...
+216 |     fn inverse_ntt(&mut self) {
+    |        ^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `ring_arith` (lib) generated 8 warnings (4 duplicates) (run `cargo fix --lib -p ring_arith` to apply 2 suggestions)
+warning: the feature `generic_const_exprs` is incomplete and may not be safe to use and/or cause compiler crashes
+ --> src/main.rs:2:12
+  |
+2 | #![feature(generic_const_exprs)]
+  |            ^^^^^^^^^^^^^^^^^^^
+  |
+  = note: see issue #76560 <https://github.com/rust-lang/rust/issues/76560> for more information
+  = note: `#[warn(incomplete_features)]` on by default
+
+warning: unused import: `ring_arith::cyclotomic_ring::*`
+ --> src/main.rs:3:5
+  |
+3 | use ring_arith::cyclotomic_ring::*;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `rand::Rng`
+ --> src/main.rs:4:5
+  |
+4 | use rand::Rng;
+  |     ^^^^^^^^^
+
+warning: unused imports: `*` and `prime::largest_prime_in_arithmetic_progression64`
+ --> src/main.rs:5:16
+  |
+5 | use tfhe_ntt::{prime::largest_prime_in_arithmetic_progression64, *};
+  |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  ^
+
+warning: `ring_arith` (bin "main" test) generated 4 warnings (run `cargo fix --bin "main" --tests` to apply 3 suggestions)
+warning: `ring_arith` (lib test) generated 8 warnings (4 duplicates) (run `cargo fix --lib -p ring_arith --tests` to apply 3 suggestions)
+warning: `ring_arith` (bin "main") generated 4 warnings (4 duplicates)
+warning: unused import: `eltwise_add_mod`
+ --> benches/bench.rs:4:55
+  |
+4 | use ring_arith::{cyclotomic_ring::*, hexl::bindings::{eltwise_add_mod, eltwise_reduce_mod}};
+  |                                                       ^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unnecessary parentheses around block return value
+  --> benches/bench.rs:17:17
+   |
+17 |                 (operand1)
+   |                 ^        ^
+   |
+   = note: `#[warn(unused_parens)]` (part of `#[warn(unused)]`) on by default
+help: remove these parentheses
+   |
+17 -                 (operand1)
+17 +                 operand1
+   |
+
+warning: unnecessary parentheses around block return value
+  --> benches/bench.rs:66:17
+   |
+66 |                 (operand1)
+   |                 ^        ^
+   |
+help: remove these parentheses
+   |
+66 -                 (operand1)
+66 +                 operand1
+   |
+
+warning: the feature `stdarch_x86_avx512` has been stable since 1.89.0 and no longer requires an attribute to enable
+ --> benches/bench.rs:1:12
+  |
+1 | #![feature(stdarch_x86_avx512)]
+  |            ^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+warning: unnecessary `unsafe` block
+  --> benches/bench.rs:34:17
+   |
+34 |                 unsafe {
+   |                 ^^^^^^ unnecessary `unsafe` block
+   |
+   = note: `#[warn(unused_unsafe)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:16:21
+   |
+16 |                 let mut operand1 = CyclotomicRing::<MOD_Q, N>::random();
+   |                     ----^^^^^^^^
+   |                     |
+   |                     help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:29:21
+   |
+29 |                 let mut operand1 = CyclotomicRing::<MOD_Q, N>::random();
+   |                     ----^^^^^^^^
+   |                     |
+   |                     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:30:21
+   |
+30 |                 let mut operand2 = CyclotomicRing::<MOD_Q, N>::random();
+   |                     ----^^^^^^^^
+   |                     |
+   |                     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:33:15
+   |
+33 |             |(mut operand1, mut operand2)| {
+   |               ----^^^^^^^^
+   |               |
+   |               help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:33:29
+   |
+33 |             |(mut operand1, mut operand2)| {
+   |                             ----^^^^^^^^
+   |                             |
+   |                             help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:63:21
+   |
+63 |                 let mut operand0 = CyclotomicRing::<MOD_Q_BIG, N>::random();
+   |                     ----^^^^^^^^
+   |                     |
+   |                     help: remove this `mut`
+
+warning: variable does not need to be mutable
+  --> benches/bench.rs:68:14
+   |
+68 |             |mut operand1| {
+   |              ----^^^^^^^^
+   |              |
+   |              help: remove this `mut`
+
+warning: `ring_arith` (bench "bench") generated 12 warnings (run `cargo fix --bench "bench"` to apply 10 suggestions)
+    Finished `bench` profile [optimized] target(s) in 4.24s
+     Running unittests src/lib.rs (target/release/deps/ring_arith-cd3b7233c2a009a0)
+
+running 6 tests
+test cyclotomic_ring::test_addition_same_representation ... ignored
+test cyclotomic_ring::test_multiplication_same_representation ... ignored
+test cyclotomic_ring::test_subtraction_same_representation ... ignored
+test hexl::bindings::tests::test_eltwise_mult_mod ... ignored
+test hexl::bindings::tests::test_multiply_mod ... ignored
+test hexl::bindings::tests::test_multiply_poly ... ignored
+
+test result: ok. 0 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/release/deps/main-df9a476f8ceb45d3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running benches/bench.rs (target/release/deps/bench-d340c4827210b612)
+Gnuplot not found, using plotters backend
+Benchmarking NTT transform
+Benchmarking NTT transform: Warming up for 30.000 s
+Benchmarking NTT transform: Collecting 10 samples in estimated 5.0000 s (6.7M iterations)
+Benchmarking NTT transform: Analyzing
+NTT transform           time:   [170.22 ns 172.98 ns 175.28 ns]
+                        change: [−8.4304% −7.4027% −6.1430%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high severe
+
+Benchmarking NTT add no mod
+Benchmarking NTT add no mod: Warming up for 30.000 s
+Benchmarking NTT add no mod: Collecting 10 samples in estimated 5.0000 s (4.6M iterations)
+Benchmarking NTT add no mod: Analyzing
+NTT add no mod          time:   [39.576 ns 40.073 ns 40.853 ns]
+                        change: [−25.089% −24.389% −23.596%] (p = 0.00 < 0.05)
+                        Performance has improved.
+
+Benchmarking NTT multiplication
+Benchmarking NTT multiplication: Warming up for 30.000 s
+Benchmarking NTT multiplication: Collecting 10 samples in estimated 5.0000 s (2.9M iterations)
+Benchmarking NTT multiplication: Analyzing
+NTT multiplication      time:   [212.68 ns 214.38 ns 216.00 ns]
+                        change: [+7.5432% +8.5534% +9.8529%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+
+Benchmarking NTT reduction
+Benchmarking NTT reduction: Warming up for 30.000 s
+Benchmarking NTT reduction: Collecting 10 samples in estimated 5.0000 s (4.7M iterations)
+Benchmarking NTT reduction: Analyzing
+NTT reduction           time:   [97.109 ns 98.175 ns 99.579 ns]
+                        change: [+0.1896% +1.3609% +2.6587%] (p = 0.03 < 0.05)
+                        Change within noise threshold.
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high mild
+
