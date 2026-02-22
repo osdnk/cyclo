@@ -1,6 +1,7 @@
 ## Cyclofold: Efficient Lattice-based Folding
 
-This repository serves as supplementary material for the anonymous submission to EUROCRYPT 2026.
+This repository serves as supplementary material for the submission to EUROCRYPT 2026, "Cyclo: Lightweight Lattice-based Folding via Partial Range Checks" by Albert Garreta, Helger Lipmaa, Urmas Luhaäär, and Michał Osadnik.
+
 
 In the Rust codebase, we evaluate the performance of cyclotomic ring arithmetic in a specific setting: modulus $q \approx 2^{50}$, degree $\varphi = 128$, where the cyclotomic ring does not fully split. For ring arithmetic, we utilize the HEXL library with custom Rust bindings. Arithmetic over quadratic extensions is performed manually. Benchmarking results are provided in the `report.out` file.
 
