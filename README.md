@@ -1,4 +1,4 @@
-## Cyclofold: Efficient Lattice-based Folding
+## Cyclo: Lightweight Lattice-based Folding via Partial Range Checks
 
 This repository serves as supplementary material for the submission to EUROCRYPT 2026, "Cyclo: Lightweight Lattice-based Folding via Partial Range Checks" by Albert Garreta, Helger Lipmaa, Urmas Luhaäär, and Michał Osadnik.
 
